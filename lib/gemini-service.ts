@@ -42,10 +42,11 @@ export class GeminiService {
 
       console.log("[v0] Enviando requisição para Gemini:", JSON.stringify(requestBody, null, 2))
 
-      const response = await fetch(`${this.baseUrl}?key=${this.apiKey}`, {
+      const response = await fetch(this.baseUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "x-goog-api-key": this.apiKey,
         },
         body: JSON.stringify(requestBody),
       })
